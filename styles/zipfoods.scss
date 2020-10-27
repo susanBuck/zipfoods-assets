@@ -80,8 +80,11 @@ nav ul {
 
         a:link,
         a:visited,
+        a:hover,
         a:active,
-        a:hover {
+            {
+            /* Ref: https://stackoverflow.com/a/49783868 for why inline-block is added */
+            display: inline-block;
             text-transform: capitalize;
             padding: 5px;
             margin: 5px;
@@ -97,8 +100,8 @@ nav ul {
 
         a.router-link-active:link,
         a.router-link-active:visited,
-        a.router-link-active:active,
-        a.router-link-active:hover {
+        a.router-link-active:hover,
+        a.router-link-active:active {
             text-decoration: none;
             color: $black;
             background-color: white;
