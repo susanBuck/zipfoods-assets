@@ -1,8 +1,69 @@
 /*----------------------------------------------------
-Master view
+VARIABLES
 -----------------------------------------------------*/
-main {
-    max-width: 800px;
+:root {
+    --radius: 5px;
+
+    --sans-serif-font: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --serif-font: Georgia, 'Times New Roman', Times, serif;
+
+    /* https: //clrs.cc/ */
+    --aqua: #7FDBFF;
+    --blue: #0074D9;
+    --navy: #001F3F;
+    --teal: #39CCCC;
+    --green: #2ECC40;
+    --olive: #3D9970;
+    --lime: #01FF70;
+
+    --yellow: #FFDC00;
+    --orange: #FF851B;
+    --red: #FF4136;
+    --fuchsia: #F012BE;
+    --purple: #B10DC9;
+    --maroon: #85144B;
+
+    --white: #FFFFFF;
+    --silver: #DDDDDD;
+    --gray: #AAAAAA;
+    --black: #111111;
+}
+
+
+/* universal box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    /* http://snook.ca/archives/html_and_css/font-size-with-rem */
+    font-size: 62.5%;
+
+    color: var(--black);
+    font-family: var(--sans-serif-font);
+
+    /* Have the scroll bars always on so there's not a shift in the layout
+    when going from a non-scrolling page to a scrolling-page */
+    overflow-y: scroll;
+}
+
+body {
+    /* Default font-size */
+    font-size: 1.6rem;
+}
+
+h2 {
+    font-size: 2.75rem;
+}
+
+
+/*----------------------------------------------------
+PAGE LAYOUT/DESIGN
+-----------------------------------------------------*/
+#app {
+    max-width: 1000px;
     width: 100%;
     margin: auto;
     padding-bottom: 20px;
@@ -11,73 +72,73 @@ main {
 
 header {
     text-align: center;
-    margin: 40px 0;
+    margin-top: 20px;
 }
 
 #logo {
     /* Actual width is 636; displaying at half-size for retina screens */
     width: 318px;
+    margin-top: 15px;
 }
 
-
-/*----------------------------------------------------
-Misc
------------------------------------------------------*/
-ul.error {
+nav ul {
     list-style-type: none;
 }
 
-
-/*----------------------------------------------------
-Product index
------------------------------------------------------*/
-#product-index .product {
-    text-align: center;
-    margin: auto;
-    margin-bottom: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #eee;
+nav ul li {
+    display: inline-block;
 }
 
-#product-index .product-name {
-    margin-top: 20px;
+nav ul li a:link,
+a:visited,
+a:hover,
+a:active {
+    /* Ref: https://stackoverflow.com/a/49783868 for why inline-block is added */
+    display: inline-block;
+    text-transform: capitalize;
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    color: var(--blue);
+}
+
+nav ul li a.router-link-active:link,
+a.router-link-active:visited,
+a.router-link-active:hover,
+a.router-link-active:active {
+    text-decoration: none;
+    color: var(--black);
+
+    background-color: var(--aqua);
+    cursor: inherit;
+}
+
+
+
+/*----------------------------------------------------
+MISC
+-----------------------------------------------------*/
+.clean-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.alert {
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: radius;
     font-weight: bold;
+    padding: 5px;
+    margin: 5px;
 }
 
-#product-index .product-thumb {
-    width: 100px;
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
 }
 
-
-/*----------------------------------------------------
-Product Show
------------------------------------------------------*/
-#product-show .product-image {
-    width: 200px;
-}
-
-#product-show .product-description {
-    padding: 10px;
-    font-size: 1.1rem;
-    font-style: italic;
-}
-
-#product-show .product-price {
-    font-size: 1.1rem;
-}
-
-#product-review {
-    margin: 20px 0;
-    background-color: #f6f7f7;
-    padding: 10px;
-}
-
-#product-review input[type=text] {
-    text-align: center;
-    width: 50%;
-    margin: auto;
-}
-
-#product-review textarea {
-    height: 150px;
+/* .fade-leave-active below version 2.1.8 */
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
