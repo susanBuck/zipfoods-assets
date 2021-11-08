@@ -54,11 +54,8 @@ body {
     font-size: 1.6rem;
 }
 
-h2 {
-    font-size: 2.75rem;
-}
 
-#app {
+main {
     max-width: 1000px;
     width: 100%;
     margin: auto;
@@ -77,64 +74,67 @@ header {
     margin-top: 15px;
 }
 
-nav ul {
-    list-style-type: none;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a:link,
-a:visited,
-a:hover,
-a:active {
-    /* Ref: https://stackoverflow.com/a/49783868 for why inline-block is added */
-    display: inline-block;
-    text-transform: capitalize;
-    padding: 5px;
-    margin: 5px;
-    cursor: pointer;
-    color: var(--blue);
-    font-weight: bold;
-}
-
-nav ul li a.router-link-active:link,
-a.router-link-active:visited,
-a.router-link-active:hover,
-a.router-link-active:active {
-    text-decoration: none;
-    color: var(--black);
-    background-color: var(--light-blue);
-    cursor: inherit;
+h2 {
+    font-size: 2.75rem;
 }
 
 
 
 /*----------------------------------------------------
-MISC
+PRODUCTS
 -----------------------------------------------------*/
-.clean-list {
-    list-style-type: none;
-    padding: 0;
+#product-index {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
 }
 
-.alert {
-    background-color: var(--green);
-    color: var(--white);
-    border-radius: radius;
+a.product-link:link,
+a.product-link:visited,
+a.product-link:active,
+a.product-link:hover {
+    text-decoration: none;
+    color: var(--black);
+    cursor: pointer;
+    border: 1px solid var(--silver);
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+    width: 30%;
+    min-width: 300px;
+}
+
+a.product-link:hover {
+    border: 1px solid var(--black);
+}
+
+.product-name {
+    height: 50px;
+    font-size: 2rem;
+    margin: 5px 0 10px 0;
+    vertical-align: baseline;
+}
+
+.product-thumb {
+    width: 75%;
+    max-width: 200px;
+    border-radius: var(--radius);
+}
+
+.product-description {
+    margin: auto;
+    margin-top: 10px;
+    text-align: left;
+    font-style: italic;
+    line-height: 1.5;
+    width: 95%;
+    max-width: 400px;
+}
+
+.product-price {
+    font-family: var(--serif-font);
     font-weight: bold;
-    padding: 5px;
-    margin: 5px;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity .5s;
-}
-
-/* .fade-leave-active below version 2.1.8 */
-.fade-enter,
-.fade-leave-to {
-    opacity: 0;
+    font-size: 2rem;
+    padding: 10px;
 }
